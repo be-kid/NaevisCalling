@@ -1,26 +1,22 @@
 import { Link } from "react-router-dom";
+import "./Menu.css";
 
 function Menu() {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/game">Game</Link>
-        </li>
-        <li>
-          <Link to="/ranking">Rank</Link>
-        </li>
-        <li>
-          <Link to="/mypage">MyPage</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </div>
+    <nav className="nav">
+      <div>
+        <Link to="/game">Game</Link>
+      </div>
+      <div>
+        <Link to="/ranking">Rank</Link>
+      </div>
+      <div>
+        <Link to="/mypage">MyPage</Link>
+      </div>
+      <div>
+        <Link to="/about">About</Link>
+      </div>
+    </nav>
   );
 }
 

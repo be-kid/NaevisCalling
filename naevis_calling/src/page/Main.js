@@ -3,13 +3,14 @@ import Mypage from "./Mypage";
 import About from "./About";
 import Menu from "../component/Menu";
 import { useLocation } from "react-router-dom";
-import SelectGame from "../component/SelectGame";
+import SelectGame from "./SelectGame";
 
 function Main() {
   let location = useLocation();
+  console.log(location.pathname);
   return (
     <div>
-      {location.pathname === "/" ? <Menu></Menu> : ""}
+      {location.pathname.slice(0, 6) === "/game/" ? "" : <Menu></Menu>}
       <Switch>
         <Route path="/game">
           <SelectGame currentPath={"/game"}></SelectGame>
