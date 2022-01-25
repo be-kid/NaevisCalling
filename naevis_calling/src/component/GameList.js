@@ -4,6 +4,13 @@ function GameList({ currentPath }) {
   return (
     <div>
       <ul>
+        {currentPath === "/ranking" ? (
+          <li>
+            <Link to={`${currentPath}/total`}>TOTAL</Link>
+          </li>
+        ) : (
+          ""
+        )}
         <li>
           <Link to={`${currentPath}/blackmamba`}>BLACK MAMBA</Link>
         </li>

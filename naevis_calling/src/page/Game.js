@@ -25,4 +25,6 @@ function PlayGame({ gameName }) {
   );
 }
 
+// 게임 화면 컴포넌트와 방향키 컴포넌트 등으로 된 게임 플레이 화면이 만들어질 곳
+
 export default PlayGame;
