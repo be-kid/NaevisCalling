@@ -1,6 +1,6 @@
-import BlackMamba from "../component/games/BlackMamba";
-import NextLevel from "../component/games/NextLevel";
-import Savage from "../component/games/Savage";
+import BlackMamba from "../components/games/BlackMamba";
+import NextLevel from "../components/games/NextLevel";
+import Savage from "../components/games/Savage";
 
 function PlayGame({ gameName }) {
   let gameCode;

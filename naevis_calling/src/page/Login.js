@@ -10,17 +10,20 @@ function Login({ handleLogin }) {
   return (
     <div>
       {location.pathname === "/" ? (
-        <div>
-          <Link to="/signup">
-            <button>회원가입하기</button>
+        <div className="login">
+          <Link to="/">
+            <button onClick={handleLogin}>SYNK</button>
           </Link>
-          <button onClick={handleLogin}>로그인하기</button>
+          <Link to="/signup">
+            <button>Create æ</button>
+          </Link>
         </div>
       ) : (
         ""
       )}
 
       <Switch>
+        <Route exact path="/"></Route>
         <Route path="/signup">
           <SignUp handleSignUp={handleSignUp}></SignUp>
         </Route>

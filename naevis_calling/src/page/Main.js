@@ -1,9 +1,9 @@
 import { Route, Switch } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Menu from "../component/Menu";
+import Menu from "../components/Menu";
 import Mypage from "./Mypage";
 import About from "./About";
-import SelectGame from "../component/SelectGame";
+import SelectGame from "../components/SelectGame";
 
 function Main() {
   let location = useLocation();

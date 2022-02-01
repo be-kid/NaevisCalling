@@ -4,7 +4,7 @@ function SignUp({ handleSignUp }) {
   return (
     <div>
       <Link to="/">
-        <button onClick={handleSignUp}>회원가입하기</button>
+        <button onClick={handleSignUp}>Create æ</button>
       </Link>
     </div>
   );
