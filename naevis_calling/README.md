@@ -36,6 +36,38 @@ Naevis Calling Project
 - [ ] 게임 부분을 제외한 나머지 부분을 더미 데이터(페이크 데이터)를 만들어 임시로 구현한다.
 - [ ] 기술을 더 배우면 게임 구현 시작
 
+- Client
+
+  - Pages
+    - Sign In
+    - Sign Up
+    - Game Select
+    - Rank Select
+    - MyPage
+    - About
+    - Play Game
+  - Components
+    - navigation
+    - Game Box
+    - Ranking
+
+- Server-Client
+
+  - GET
+    - 로그인
+    - 마이페이지 보기
+    - 랭킹 보기
+  - POST
+    - 회원가입
+  - PUT
+    - 마이페이지 수정
+    - 게임 후 점수 반영
+
+- DB
+  - ID, Password
+  - MyPage Info
+  - 각 게임 점수
+
 ---
 
 commit type
