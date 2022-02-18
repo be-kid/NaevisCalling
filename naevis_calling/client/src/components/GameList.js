@@ -1,7 +1,7 @@
-import snakeImg from "/Users/jooyong/PROJECT/naevis_calling/src/img/snake.jpg";
-import nextImg from "/Users/jooyong/PROJECT/naevis_calling/src/img/next.jpg";
-import savageImg from "/Users/jooyong/PROJECT/naevis_calling/src/img/savage.jpg";
-import totalImg from "/Users/jooyong/PROJECT/naevis_calling/src/img/pos.jpg";
+import snakeImg from "/Users/jooyong/PROJECT/naevis_calling/client/src/img/snake.jpg";
+import nextImg from "/Users/jooyong/PROJECT/naevis_calling/client/src/img/next.jpg";
+import savageImg from "/Users/jooyong/PROJECT/naevis_calling/client/src/img/savage.jpg";
+import totalImg from "/Users/jooyong/PROJECT/naevis_calling/client/src/img/pos.jpg";
 import GameBox from "./GameBox";
 
 function GameList({ currentPath }) {

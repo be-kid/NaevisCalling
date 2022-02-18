@@ -3,3 +3,5 @@ function Mypage() {
 }
 
 export default Mypage;
+
+// 마이페이지 page

@@ -11,3 +11,5 @@ function SignUp({ handleSignUp }) {
 }
 
 export default SignUp;
+
+// 회원가입 page
