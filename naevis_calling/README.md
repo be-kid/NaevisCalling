@@ -29,12 +29,18 @@ Naevis Calling Project
   - 뱀에 닿으면 종료
 
 - NEXT LEVEL, SAVAGE
+
   - 미정
 
-할 일
+---
 
-- [ ] 게임 부분을 제외한 나머지 부분을 더미 데이터(페이크 데이터)를 만들어 임시로 구현한다.
-- [ ] 기술을 더 배우면 게임 구현 시작
+- 할일
+
+  - 게임 구현하기
+  - 서버 구현하기
+  - 로그인/회원가입 구현하기 (kakao OAuth 등)
+  - DB 연결하기
+  - MyPage, About 만들기
 
 - Client
 
@@ -43,13 +49,17 @@ Naevis Calling Project
     - Sign Up
     - Game Select
     - Rank Select
+    - Ranking
     - MyPage
     - About
     - Play Game
   - Components
-    - navigation
+    - navigation(menu)
     - Game Box
-    - Ranking
+    - 게임 구성 요소
+      - Score
+      - Arrow Keys
+      - Game Screen
 
 - Server-Client
 
@@ -78,3 +88,9 @@ commit type
 - refactor : 코드 리팩토링
 - style : 코드 의미에 영향을 주지 않는 변경사항
 - build : 시스템 또는 외부 종속성에 영향을 미치는 변경사항 (npm 레벨)
+
+README 미리보기 : command + shift + v
+
+client 실행 : client 폴더에서 npm start (or npm run start)
+
+server 미구현
