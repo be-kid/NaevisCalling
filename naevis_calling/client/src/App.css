@@ -9,7 +9,6 @@ body {
   background-color: black;
   text-align: center;
   color: white;
-  width: 40vh;
   margin: 0 auto;
 }
 
@@ -26,6 +25,8 @@ li {
 .nav {
   display: flex;
   justify-content: space-evenly;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .nav div {
@@ -45,6 +46,8 @@ a:visited {
   border: 1px solid rgb(67, 40, 201);
   border-radius: 20px;
   margin-top: 1vh;
+  width: 80%;
+  margin-left: 10%;
 }
 img {
   height: 15vh;

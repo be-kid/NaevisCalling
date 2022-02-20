@@ -2,7 +2,9 @@ import { Switch, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import GameList from "../components/GameList";
 import Rank from "./Rank";
-import Game from "./Game";
+import BlackMamba from "../components/games/BlackMamba";
+import NextLevel from "../components/games/NextLevel";
+import Savage from "../components/games/Savage";
 
 function SelectGame({ currentPath }) {
   let location = useLocation();
@@ -23,25 +25,13 @@ function SelectGame({ currentPath }) {
           ""
         )}
         <Route path={`${currentPath}/blackmamba`}>
-          {Ranking ? (
-            <Rank gameName={"blackmamba"}></Rank>
-          ) : (
-            <Game gameName={"blackmamba"}></Game>
-          )}
+          {Ranking ? <Rank gameName={"blackmamba"}></Rank> : <BlackMamba />}
         </Route>
         <Route path={`${currentPath}/nextlevel`}>
-          {Ranking ? (
-            <Rank gameName={"nextlevel"}></Rank>
-          ) : (
-            <Game gameName={"nextlevel"}></Game>
-          )}
+          {Ranking ? <Rank gameName={"nextlevel"}></Rank> : <NextLevel />}
         </Route>
         <Route path={`${currentPath}/savage`}>
-          {Ranking ? (
-            <Rank gameName={"savage"}></Rank>
-          ) : (
-            <Game gameName={"savage"}></Game>
-          )}
+          {Ranking ? <Rank gameName={"savage"}></Rank> : <Savage />}
         </Route>
       </Switch>
     </div>

@@ -12,20 +12,19 @@ const ArrowKeys = styled.div`
   transform: translateX(-50%);
 `;
 
-const UpArrow = styled.button`
+const button = styled.button`
   width: 50px;
   height: 50px;
   background-color: unset;
   border: 0px;
+`;
+
+const UpArrow = styled(button)`
   margin-bottom: 100%;
   background-image: url(${arrow2});
 `;
 
-const LeftArrow = styled.button`
-  width: 50px;
-  height: 50px;
-  background-color: unset;
-  border: 0px;
+const LeftArrow = styled(button)`
   position: absolute;
   top: 50%;
   left: 30%;
@@ -33,11 +32,7 @@ const LeftArrow = styled.button`
   background-image: url(${arrow1});
 `;
 
-const RightArrow = styled.button`
-  width: 50px;
-  height: 50px;
-  background-color: unset;
-  border: 0px;
+const RightArrow = styled(button)`
   position: absolute;
   top: 50%;
   right: 30%;
@@ -45,22 +40,46 @@ const RightArrow = styled.button`
   background-image: url(${arrow1});
 `;
 
-const DownArrow = styled.button`
-  width: 50px;
-  height: 50px;
-  background-color: unset;
-  border: 0px;
+const DownArrow = styled(button)`
   transform: rotateX(180deg);
   background-image: url(${arrow2});
 `;
 
-export const ArrowKey = () => {
+export const ArrowKey = ({ userPos, setUserPos }) => {
+  const clickArrowButton = (move) => {
+    const nextPos = [userPos[0] + move[0], userPos[1] + move[1]];
+    if (
+      nextPos[0] >= 0 &&
+      nextPos[0] < 25 &&
+      nextPos[1] >= 0 &&
+      nextPos[1] < 25
+    ) {
+      setUserPos(nextPos);
+    }
+  };
+
   return (
     <ArrowKeys>
-      <UpArrow />
-      <LeftArrow />
-      <DownArrow />
-      <RightArrow />
+      <UpArrow
+        onClick={() => {
+          clickArrowButton([-1, 0]);
+        }}
+      />
+      <LeftArrow
+        onClick={() => {
+          clickArrowButton([0, -1]);
+        }}
+      />
+      <DownArrow
+        onClick={() => {
+          clickArrowButton([1, 0]);
+        }}
+      />
+      <RightArrow
+        onClick={() => {
+          clickArrowButton([0, 1]);
+        }}
+      />
     </ArrowKeys>
   );
 };
