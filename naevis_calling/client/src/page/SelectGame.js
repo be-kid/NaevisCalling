@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import GameList from "./GameList";
-import Rank from "../page/Rank";
-import Game from "../page/Game";
+import GameList from "../components/GameList";
+import Rank from "./Rank";
+import Game from "./Game";
 
 function SelectGame({ currentPath }) {
   let location = useLocation();

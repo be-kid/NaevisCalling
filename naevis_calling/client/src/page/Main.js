@@ -3,11 +3,10 @@ import { useLocation } from "react-router-dom";
 import Menu from "../components/Menu";
 import Mypage from "./Mypage";
 import About from "./About";
-import SelectGame from "../components/SelectGame";
+import SelectGame from "./SelectGame";
 
 function Main() {
   let location = useLocation();
-  console.log(location.pathname);
   return (
     <div>
       {location.pathname.slice(0, 6) === "/game/" ? "" : <Menu></Menu>}

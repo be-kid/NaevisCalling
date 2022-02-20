@@ -1,6 +1,8 @@
+import { ArrowKey } from "../components/ArrowKey";
 import BlackMamba from "../components/games/BlackMamba";
 import NextLevel from "../components/games/NextLevel";
 import Savage from "../components/games/Savage";
+import Score from "../components/Score";
 
 function PlayGame({ gameName }) {
   let gameCode;
@@ -14,13 +16,18 @@ function PlayGame({ gameName }) {
 
   return (
     <div>
-      {gameCode === 0 ? (
-        <BlackMamba />
-      ) : gameCode === 1 ? (
-        <NextLevel />
-      ) : (
-        <Savage />
-      )}
+      <h2>{gameName.toUpperCase()}</h2>
+      <Score />
+      <div>
+        {gameCode === 0 ? (
+          <BlackMamba />
+        ) : gameCode === 1 ? (
+          <NextLevel />
+        ) : (
+          <Savage />
+        )}
+      </div>
+      <ArrowKey />
     </div>
   );
 }
