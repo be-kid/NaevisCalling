@@ -14,18 +14,34 @@ const GameBoard = styled.div`
   flex-wrap: wrap;
 `;
 
+const Piece = styled.div`
+  box-sizing: border-box;
+  border: 1px solid;
+  width: 4%;
+  height: 4%;
+  background-color: ${(props) => props.background || "white"};
+`;
+
 function BlackMamba() {
   const [userPos, setUserPos] = useState([0, 0]);
   const [snake, setSnake] = useState([]);
   const [crystalPos, setCrystalPos] = useState([]);
   const [score, setScore] = useState(0);
-
+  const pieces = Array.from({ length: 25 }, (v) =>
+    Array.from({ length: 25 }, (v) => 0)
+  );
   return (
     <div>
       <h2>Black Mamba</h2>
       <Score score={score} />
 
-      <GameBoard />
+      <GameBoard>
+        {pieces.map((elems, i) => {
+          return elems.map((elem, j) => {
+            return <Piece key={`${i},${j}`} id={`${i},${j}`} />;
+          });
+        })}
+      </GameBoard>
 
       <ArrowKey userPos={userPos} setUserPos={setUserPos} />
     </div>
