@@ -24,12 +24,22 @@ const Piece = styled.div`
 
 function BlackMamba() {
   const [userPos, setUserPos] = useState([0, 0]);
-  const [snake, setSnake] = useState([]);
+  const [snakes, setSnakes] = useState([]);
   const [crystalPos, setCrystalPos] = useState([]);
   const [score, setScore] = useState(0);
   const pieces = Array.from({ length: 25 }, (v) =>
     Array.from({ length: 25 }, (v) => 0)
   );
+
+  const pieceColors = {};
+  pieceColors[`${userPos[0]},${userPos[1]}`] = "gray";
+  snakes.forEach((snake) => {
+    snake.forEach((el) => {
+      pieceColors[`${el[0]},${el[1]}`] = "black";
+    });
+  });
+  pieceColors[`${crystalPos[0]},${crystalPos[1]}`] = "red";
+
   return (
     <div>
       <h2>Black Mamba</h2>
@@ -38,7 +48,15 @@ function BlackMamba() {
       <GameBoard>
         {pieces.map((elems, i) => {
           return elems.map((elem, j) => {
-            return <Piece key={`${i},${j}`} id={`${i},${j}`} />;
+            return (
+              <Piece
+                key={`${i},${j}`}
+                id={`${i},${j}`}
+                background={() => {
+                  return pieceColors[`${i},${j}`] ?? "white";
+                }}
+              />
+            );
           });
         })}
       </GameBoard>
