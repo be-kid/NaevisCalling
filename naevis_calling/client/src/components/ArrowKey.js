@@ -45,27 +45,14 @@ const DownArrow = styled(button)`
   background-image: url(${arrow2});
 `;
 
-export const ArrowKey = ({
-  userPos,
-  setUserPos,
-  crystalPos,
-  crystalRegen,
-  score,
-  setScore,
-}) => {
+export const ArrowKey = ({ userPos, updateBoard }) => {
+  const isVaild = (x, y) => {
+    return 0 <= x && x < 25 && 0 <= y && y < 25;
+  };
   const clickArrowButton = (move) => {
     const nextPos = [userPos[0] + move[0], userPos[1] + move[1]];
-    if (
-      nextPos[0] >= 0 &&
-      nextPos[0] < 25 &&
-      nextPos[1] >= 0 &&
-      nextPos[1] < 25
-    ) {
-      if (crystalPos[0] === nextPos[0] && crystalPos[1] === nextPos[1]) {
-        setScore(score + 100); // 임시로 100점씩 늘어나게
-        crystalRegen(); // 보석을 먹었으니 새로운 위치로 배정
-      }
-      setUserPos(nextPos);
+    if (isVaild(nextPos[0], nextPos[1])) {
+      updateBoard(nextPos[0], nextPos[1]);
     }
   };
 

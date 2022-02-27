@@ -7,8 +7,8 @@ import GameBox from "./GameBox";
 function GameList({ currentPath }) {
   const gameList = [
     [snakeImg, "blackmamba"],
-    [nextImg, "nextlevel"],
-    [savageImg, "savage"],
+    // [nextImg, "nextlevel"],
+    // [savageImg, "savage"],
   ];
   return (
     <div>

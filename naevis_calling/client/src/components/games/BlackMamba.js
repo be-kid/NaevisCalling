@@ -54,6 +54,21 @@ function BlackMamba() {
     }
   };
 
+  const updateBoard = (x, y) => {
+    if (crystalPos[0] === x && crystalPos[1] === y) {
+      setScore(score + 100); // 임시로 100점씩 늘어나게
+      crystalRegen(); // 보석을 먹었으니 새로운 위치로 배정
+      addSnake(); // 뱀 추가
+    }
+    setUserPos([x, y]);
+  };
+  const addSnake = () => {
+    // if (snakes.length < 8) {
+    //   const newSnake = [];
+    //   setSnakes([...snakes, newSnake]);
+    // }
+  };
+
   return (
     <div>
       <h2>Black Mamba</h2>
@@ -75,50 +90,9 @@ function BlackMamba() {
         })}
       </GameBoard>
 
-      <ArrowKey
-        userPos={userPos}
-        setUserPos={setUserPos}
-        crystalPos={crystalPos}
-        crystalRegen={crystalRegen}
-        score={score}
-        setScore={setScore}
-      />
+      <ArrowKey userPos={userPos} updateBoard={updateBoard} />
     </div>
   );
 }
 
 export default BlackMamba;
-/*
-export const makeGameBoard = () => {
-    const gameBoard = document.getElementById("gameBoard");
-
-    for (let i=0; i<25; i++){
-        for (let j=0; j<25; j++){
-            const div = document.createElement("div");
-            div.id = `${i},${j}`;
-            div.className = "piece";
-            div.style.backgroundColor = "white";
-            gameBoard.appendChild(div);
-        }
-    }
-}
-
-export const clearGameBoard = () => {
-    document.querySelectorAll(".piece").forEach(p=>{
-        p.style.backgroundColor = "white";
-    })
-}
-
-export const setBoard = () => {
-    const board = new Array(25);
-    for (let i = 0; i<25; i++){
-        board[i] = new Array(25);
-    }
-    for (let i=0;i<25;i++){
-        for (let j=0; j<25; j++){
-            board[i][j] = 0;
-        }
-    }
-    return board;
-}
-*/
