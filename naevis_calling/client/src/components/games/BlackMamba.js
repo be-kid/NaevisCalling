@@ -30,6 +30,7 @@ function BlackMamba() {
     (Math.floor(Math.random() * 100) % 10) + 10,
   ]);
   const [score, setScore] = useState(0);
+  const [gameState, setGameState] = useState(true);
   const pieces = Array.from({ length: 25 }, (v) =>
     Array.from({ length: 25 }, (v) => 0)
   );
@@ -55,18 +56,46 @@ function BlackMamba() {
   };
 
   const updateBoard = (x, y) => {
+    setUserPos([x, y]);
     if (crystalPos[0] === x && crystalPos[1] === y) {
       setScore(score + 100); // 임시로 100점씩 늘어나게
       crystalRegen(); // 보석을 먹었으니 새로운 위치로 배정
       addSnake(); // 뱀 추가
     }
-    setUserPos([x, y]);
   };
+
+  const isVaild = (x, y) => {
+    return 0 <= x && x < 25 && 0 <= y && y < 25;
+  };
+  const clickArrowButton = (move) => {
+    const nextPos = [userPos[0] + move[0], userPos[1] + move[1]];
+    if (isVaild(nextPos[0], nextPos[1])) {
+      updateBoard(nextPos[0], nextPos[1]);
+    }
+  };
+
   const addSnake = () => {
     // if (snakes.length < 8) {
-    //   const newSnake = [];
+    //   const newSnake = [[24,0],[24,1],[24,2],[24,3],[24,4],[24,5],[24,6],[24,7],[24,8]];
+    //   새로운 뱀이 추가될 수 있을 때까지 체크
+    //   checkEmpty();
+    //   추가된 이후로 움직이도록 함
     //   setSnakes([...snakes, newSnake]);
     // }
+  };
+
+  const checkEmpty = () => {
+    let check = setInterval(function () {
+      let flag = true;
+      for (let i = 0; i < 9; i++) {
+        if (pieceColors[`24,${i}`]) {
+          flag = false;
+        }
+      }
+      if (flag) {
+        clearInterval(check);
+      }
+    }, 100);
   };
 
   return (
@@ -90,7 +119,7 @@ function BlackMamba() {
         })}
       </GameBoard>
 
-      <ArrowKey userPos={userPos} updateBoard={updateBoard} />
+      <ArrowKey clickArrowButton={clickArrowButton} />
     </div>
   );
 }

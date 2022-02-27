@@ -45,17 +45,7 @@ const DownArrow = styled(button)`
   background-image: url(${arrow2});
 `;
 
-export const ArrowKey = ({ userPos, updateBoard }) => {
-  const isVaild = (x, y) => {
-    return 0 <= x && x < 25 && 0 <= y && y < 25;
-  };
-  const clickArrowButton = (move) => {
-    const nextPos = [userPos[0] + move[0], userPos[1] + move[1]];
-    if (isVaild(nextPos[0], nextPos[1])) {
-      updateBoard(nextPos[0], nextPos[1]);
-    }
-  };
-
+export const ArrowKey = ({ clickArrowButton }) => {
   return (
     <ArrowKeys>
       <UpArrow
