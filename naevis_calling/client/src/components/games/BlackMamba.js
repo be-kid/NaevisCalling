@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowKey } from "../ArrowKey";
 import Score from "../Score";
 
@@ -25,13 +25,16 @@ const Piece = styled.div`
 function BlackMamba() {
   const [userPos, setUserPos] = useState([0, 0]);
   const [snakes, setSnakes] = useState([]);
-  const [crystalPos, setCrystalPos] = useState([]);
+  const [crystalPos, setCrystalPos] = useState([
+    (Math.floor(Math.random() * 100) % 10) + 10,
+    (Math.floor(Math.random() * 100) % 10) + 10,
+  ]);
   const [score, setScore] = useState(0);
   const pieces = Array.from({ length: 25 }, (v) =>
     Array.from({ length: 25 }, (v) => 0)
   );
 
-  const pieceColors = {};
+  let pieceColors = {};
   pieceColors[`${userPos[0]},${userPos[1]}`] = "gray";
   snakes.forEach((snake) => {
     snake.forEach((el) => {
@@ -39,6 +42,17 @@ function BlackMamba() {
     });
   });
   pieceColors[`${crystalPos[0]},${crystalPos[1]}`] = "red";
+
+  const crystalRegen = () => {
+    while (true) {
+      let crystalX = Math.floor(Math.random() * 100) % 25;
+      let crystalY = Math.floor(Math.random() * 100) % 25;
+      if (pieceColors[`${crystalX},${crystalY}`] === undefined) {
+        setCrystalPos([crystalX, crystalY]);
+        break;
+      }
+    }
+  };
 
   return (
     <div>
@@ -61,7 +75,14 @@ function BlackMamba() {
         })}
       </GameBoard>
 
-      <ArrowKey userPos={userPos} setUserPos={setUserPos} />
+      <ArrowKey
+        userPos={userPos}
+        setUserPos={setUserPos}
+        crystalPos={crystalPos}
+        crystalRegen={crystalRegen}
+        score={score}
+        setScore={setScore}
+      />
     </div>
   );
 }

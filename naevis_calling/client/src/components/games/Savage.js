@@ -9,9 +9,9 @@ function Savage() {
   return (
     <div>
       <h2>Savage</h2>
-      <Score score={score} />
-
-      <ArrowKey userPos={userPos} setUserPos={setUserPos} />
+      {/* <Score score={score} /> */}
+      <p>준비 중...</p>
+      {/* <ArrowKey userPos={userPos} setUserPos={setUserPos} /> */}
     </div>
   );
 }

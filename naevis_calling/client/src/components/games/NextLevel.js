@@ -9,9 +9,9 @@ function NextLevel() {
   return (
     <div>
       <h2>Next Level</h2>
-      <Score score={score} />
-
-      <ArrowKey userPos={userPos} setUserPos={setUserPos} />
+      {/* <Score score={score} /> */}
+      <p>준비 중...</p>
+      {/* <ArrowKey userPos={userPos} setUserPos={setUserPos} /> */}
     </div>
   );
 }
